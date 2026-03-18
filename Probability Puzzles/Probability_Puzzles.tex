@@ -1,0 +1,87 @@
+\documentclass[fleqn]{scrartcl}
+
+% --------------------------------------------------
+% Page appearance (subtle warm tone)
+% --------------------------------------------------
+\usepackage{xcolor}
+\pagecolor{yellow!3}        
+\color{black}               
+
+% --------------------------------------------------
+% Layout and spacing
+% --------------------------------------------------
+\KOMAoptions{parskip=half}  % space between paragraphs (no indentation feel)
+\setlength{\parindent}{0pt} % remove paragraph indentation
+\setlength{\mathindent}{0pt}% left-align equations (fleqn tweak)
+
+% --------------------------------------------------
+% Math packages
+% --------------------------------------------------
+\usepackage{amsmath, amssymb}
+
+% --------------------------------------------------
+% Theorem styling (clean, minimal)
+% --------------------------------------------------
+\usepackage{amsthm}
+
+\newtheoremstyle{clean}
+  {6pt}        % Space above
+  {6pt}        % Space below
+  {\normalfont}% Body font
+  {}           % Indent amount
+  {\bfseries}  % Head font (bold)
+  {.}          % Punctuation after heading
+  {0.5em}      % Space after heading
+  {}
+
+\theoremstyle{clean}
+\newtheorem{question}{} % auto-numbered questions
+
+% --------------------------------------------------
+% Solution environment
+% --------------------------------------------------
+\newenvironment{solution}
+{\par\textit{Sol.} }       % italic label
+{\hfill$\square$\par}      % end with square box
+
+% --------------------------------------------------
+% Title (no date)
+% --------------------------------------------------
+\title{Probability Puzzles}
+\date{}                    % removes date
+
+% --------------------------------------------------
+\begin{document}
+\maketitle
+
+
+\begin{question}
+Two gamblers A and B have $n+1$ and $n$ fair coins respectively. 
+Find $P(A > B)$.
+\end{question}
+
+\begin{solution}
+Define events:
+\begin{itemize}
+    \item $E$: A has more heads in first $n$ tosses
+    \item $F$: B has more heads in first $n$ tosses
+    \item $G$: Equal heads in first $n$ tosses
+    \item $H$: A gets head in $(n+1)$th toss
+\end{itemize}
+
+By symmetry:
+\[
+P(E) = P(F) = x, \quad P(G) = y, \quad P(H) = \tfrac{1}{2}
+\]
+
+\[
+2x + y = 1
+\]
+
+Required:
+\[
+P(A > B) = P(E) + P(G \cap H) = x + \tfrac{y}{2} = \tfrac{1}{2}
+\]
+\end{solution}
+
+\end{document}
