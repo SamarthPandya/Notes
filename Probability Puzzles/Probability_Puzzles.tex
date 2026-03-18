@@ -1,4 +1,4 @@
-\documentclass[fleqn]{scrartcl}
+\documentclass[DIV=15, fleqn]{scrartcl}
 
 % --------------------------------------------------
 % Page appearance (subtle warm tone)
@@ -56,32 +56,29 @@
 
 
 \begin{question}
-Two gamblers A and B have $n+1$ and $n$ fair coins respectively. 
-Find $P(A > B)$.
+Two gamblers A and B have $n+1$ and $n$ fair coins respectively. If both toss
+all their coins, find the probability that the number of heads of A is greater than the
+number of heads of B.
 \end{question}
-
 \begin{solution}
-Define events:
-\begin{itemize}
-    \item $E$: A has more heads in first $n$ tosses
-    \item $F$: B has more heads in first $n$ tosses
-    \item $G$: Equal heads in first $n$ tosses
-    \item $H$: A gets head in $(n+1)$th toss
-\end{itemize}
+Define events: \\
+$E$: $A$ has more heads in the first $n$ tosses \\
+$F$: $B$ has more heads in the first $n$ tosses \\
+$G$: $A$ and $B$ have equal heads in the first $n$ tosses \\
+$H$: $A$ gets a head in $(n+1)^{th}$ toss
 
-By symmetry:
-\[
-P(E) = P(F) = x, \quad P(G) = y, \quad P(H) = \tfrac{1}{2}
-\]
+By law of total probability, $P(E) + P(F) + P(G) = 1$. By symmetry, $P(E) = P(F)$, so:
+\begin{equation}
+2P(E) + P(G) = 1 \label{eq:total_prob}
+\end{equation}
 
-\[
-2x + y = 1
-\]
+We require the probability that $A$ has more heads than $B$ after $n+1$ tosses. This occurs if $E$ happens (regardless of $H$) OR if $G$ happens AND $H$ happens:
+\[ P(\text{Result}) = P(E) + P(G)P(H) \]
 
-Required:
-\[
-P(A > B) = P(E) + P(G \cap H) = x + \tfrac{y}{2} = \tfrac{1}{2}
-\]
+Since $P(H) = \frac{1}{2}$, we have:
+\[ P(\text{Result}) = P(E) + \frac{1}{2}P(G) = \frac{2P(E) + P(G)}{2} \]
+
+Substituting from (\ref{eq:total_prob}), we get $P(\text{Result}) = \frac{1}{2}$
 \end{solution}
 
 \end{document}
