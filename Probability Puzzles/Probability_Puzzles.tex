@@ -1,4 +1,4 @@
-\documentclass[DIV=15, fleqn]{scrartcl}
+\documentclass[DIV=15, fleqn, oneside]{scrartcl}
 
 % --------------------------------------------------
 % Page appearance (subtle warm tone)
@@ -41,20 +41,21 @@
 % Solution environment
 % --------------------------------------------------
 \newenvironment{solution}
-{\par\textit{Sol.} }       % italic label
-{\hfill$\square$\par}      % end with square box
+{\par\textit{Sol.} }     % italic label
+{\par\medskip\hrule\bigskip}
 
 % --------------------------------------------------
 % Title (no date)
 % --------------------------------------------------
-\title{Probability Puzzles}
+\title{Questions on Probability}
 \date{}                    % removes date
 
 % --------------------------------------------------
 \begin{document}
 \maketitle
 
-
+\newpage
+\section{Symmetry \& Total Probability}
 \begin{question}
 Two gamblers A and B have $n+1$ and $n$ fair coins respectively. If both toss
 all their coins, find the probability that the number of heads of A is greater than the
@@ -80,5 +81,6 @@ Since $P(H) = \frac{1}{2}$, we have:
 
 Substituting from (\ref{eq:total_prob}), we get $P(\text{Result}) = \frac{1}{2}$
 \end{solution}
+
 
 \end{document}
