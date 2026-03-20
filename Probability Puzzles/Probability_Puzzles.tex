@@ -1,4 +1,4 @@
-\documentclass[DIV=15, fleqn, oneside]{scrartcl}
+\documentclass[DIV=15, fleqn, oneside, 8pt]{scrartcl}
 
 % --------------------------------------------------
 % Page appearance (subtle warm tone)
@@ -18,6 +18,7 @@
 % Math packages
 % --------------------------------------------------
 \usepackage{amsmath, amssymb}
+\AtBeginDocument{\setlength{\mathindent}{0pt}}
 
 % --------------------------------------------------
 % Theorem styling (clean, minimal)
@@ -35,7 +36,7 @@
   {}
 
 \theoremstyle{clean}
-\newtheorem{question}{} % auto-numbered questions
+\newtheorem{question}{Q} % auto-numbered questions
 
 % --------------------------------------------------
 % Solution environment
@@ -80,6 +81,31 @@ Since $P(H) = \frac{1}{2}$, we have:
 \[ P(\text{Result}) = P(E) + \frac{1}{2}P(G) = \frac{2P(E) + P(G)}{2} \]
 
 Substituting from (\ref{eq:total_prob}), we get $P(\text{Result}) = \frac{1}{2}$
+\end{solution}
+
+% ---
+
+\begin{question}
+A, B and C toss a fair coin and get their first heads in $N_A$, $N_B$ and $N_C$ tosses respectively.
+Find $P(N_A < N_B < N_C)$.
+\end{question}
+\begin{solution}
+Let D be the event that $N_A \neq N_B \neq N_C$. By symmetry, each of the 6 permutations under the
+event D are equally likely:
+\[P(N_A < N_B < N_C) = \frac{1}{6} \times P(D)\]
+\begin{equation}
+  P(D) = 1 - 3 \times P(two\:are\:same) - P(three\:are\:same)\label{eq:total_prob}
+\end{equation}
+$N_A$, $N_B$ and $N_C$ follow the geometric distribution, $(1/2)^n$ where n=1,2... so,
+\[P(two\:are\:same) = \sum_{k = 1}^{n}{(\frac{1}{2})^{2n}(1 - (\frac{1}{2})^n)} = 
+\sum_{k = 1}^{n}{(\frac{1}{2})^{2n}} - \sum_{k = 1}^{n}{(\frac{1}{2})^{3n}}
+= \frac{1}{3} - \frac{1}{7} = \frac{4}{21} \text{ and }
+P(three\:are\:same) = \sum_{k = 1}^{n}{(\frac{1}{2})^{3n}} = \frac{1}{7}\]
+Substituting the above values in (2),
+\[
+P(D) = 1 - 3 \times \frac{4}{21} - \frac{1}{7} = \frac{2}{7} \text{ hence, }
+P(N_A < N_B < N_C) = \frac{1}{6} \times \frac{2}{7} = \frac{1}{21}
+\]
 \end{solution}
 
 

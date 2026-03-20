@@ -1,0 +1,33 @@
+Ty, Guy, and Psy are all flipping fair until they respectively obtain their first heads. Let 
+T
+,
+G
+,
+T,G, and 
+P
+P represent the number of flips needed for Ty, Guy, and Psy, respectively. Find 
+P
+[
+T
+<
+G
+<
+P
+]
+P[T<G<P].
+
+P(T = n) = pow(1/2, n)
+P(T < G < P) = P(All get in diff num of tosses)/6
+
+1 - 3 * P(two are same) - P(all three same)
+
+
+P(two are same) = sum(pow(1/2, 2n) * (1 - pow(1/2, n)) | n = 1, 2...)
+
+ = sum (pow(1/2, 2n)) - sum(pow(1/2, 3n)) = 1/3 - 1/7 = 4/21
+
+P(all three are same) = sum(1/2, 3n) = 1/7
+
+1 - 4/7 - 1/7 = 2/7
+
+so 1/21
