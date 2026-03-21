@@ -183,4 +183,67 @@ Dividing by the total number of paths, we get the required probability = $\frac{
 
 Since here $P=Q=19$, the answer is $\frac{1}{20}$.
 \end{solution}
+
+\newpage
+\section*{Optimal Stopping Problems}
+\begin{question}
+Consider a dice game where upto three rolls of a fair 6 sided die are allowed. The first roll
+is free. A player can choose to accept the reward as the face value or forfeit it, pay \$1 and roll
+again. The same rule applies for the second roll. In the third roll, there is no choice but to
+accept the reward. What is the optimal strategy? What is the expected reward under this optimal
+strategy?
+\end{question}
+\begin{solution}
+\textbf{This is an optimal stopping problem where we need to decide the stopping rule for the 
+first two rolls.}
+
+
+The stopping decision for any roll should depend on the future potential, as there is no reward
+from the past rolls. Due to this observation, we need to approach this problem via
+\textbf{backward induction}.
+
+Let $E_1 \: E_2 \: and\: E_3$ denote the potential reward from starting the game at rolls 1, 2 and
+3 respectively.
+
+$E_3 = 3.5 - 1$ = 2.5 where 3.5 is the expected reward and 1 for the fee of rolling the die a 
+third time.
+
+This means, at roll 2, we must not accept anything less than 2.5. Stopping decision for roll 2 is
+to stop if we roll 3, 4, 5 or 6, or, roll again otherwise. This gives:
+
+\[
+E_2 = (\frac{2}{6} \times 2.5) + (\frac{4}{6} \times \frac{3 + 4 + 5 + 6}{4}) - 1 = 2.833 
+\]
+
+This means, at roll 1, me accept  3, 4, 5 or 6 and roll again otherwise, which gives:
+
+\[
+E_1 = (\frac{4}{6} \times \frac{3 + 4 + 5 + 6}{4}) + (\frac{2}{6} \times 2.833) = 3.944
+\]
+
+$\therefore$ the expected reward under optimal strategy is 3.944.
+\end{solution}
+
+\newpage
+\section*{Linearity Of Expectation}
+\begin{question}
+A shuffled deck of 50 black and 50 red cards is laid out linearly. What is the expected number of
+runs?
+\end{question}
+\begin{solution}
+Define the indicator variables $I_j$ for $j \in \{1, 2, \dots, 100\}$ such that $I_j = 1$ if a new 
+run begins at position $j$, and $I_j = 0$ otherwise.
+
+The total number of runs $R$ is given by:
+\[ R = I_1 + \sum_{j=2}^{100} I_j \]
+
+By linearity of expectation:
+\[ E[R] = E[I_1] + \sum_{j=2}^{100} E[I_j] \]
+
+$E[I_1] = 1$ and by symmetry, $E[I_i] = 2 \times \frac{50}{100} \times \frac{50}{99}$. So we get:
+
+\[
+E[R] = 1 + 99 \times 2 \times \frac{50}{100} \times \frac{50}{99} = 1 + 50 = 51
+\]
+\end{solution}
 \end{document}
