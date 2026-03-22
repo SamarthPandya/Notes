@@ -71,7 +71,7 @@ $H$: $A$ gets a head in $(n+1)^{th}$ toss
 
 By law of total probability, $P(E) + P(F) + P(G) = 1$. By symmetry, $P(E) = P(F)$, so:
 \begin{equation}
-2P(E) + P(G) = 1 \label{eq:total_prob}
+2P(E) + P(G) = 1
 \end{equation}
 
 We require the probability that $A$ has more heads than $B$ after $n+1$ tosses. This occurs if $E$ happens (regardless of $H$) OR if $G$ happens AND $H$ happens:
@@ -80,7 +80,7 @@ We require the probability that $A$ has more heads than $B$ after $n+1$ tosses. 
 Since $P(H) = \frac{1}{2}$, we have:
 \[ P(\text{Result}) = P(E) + \frac{1}{2}P(G) = \frac{2P(E) + P(G)}{2} \]
 
-Substituting from (\ref{eq:total_prob}), we get $P(\text{Result}) = \frac{1}{2}$
+Substituting from (1), we get $P(\text{Result}) = \frac{1}{2}$
 \end{solution}
 
 % ---
@@ -95,7 +95,7 @@ Let D be the event that $N_A \neq N_B \neq N_C$. By symmetry, each of the 6 perm
 event D are equally likely:
 \[P(N_A < N_B < N_C) = \frac{1}{6} \times P(D)\]
 \begin{equation}
-  P(D) = 1 - 3 \times P(two\:are\:same) - P(three\:are\:same)\label{eq:total_prob}
+  P(D) = 1 - 3 \times P(two\:are\:same) - P(three\:are\:same)
 \end{equation}
 $N_A$, $N_B$ and $N_C$ follow the geometric distribution, $(1/2)^n$ where n=1,2... so,
 \[P(two\:are\:same) = \sum_{k = 1}^{n}{(\frac{1}{2})^{2n}(1 - (\frac{1}{2})^n)} = 
@@ -109,6 +109,32 @@ P(N_A < N_B < N_C) = \frac{1}{6} \times \frac{2}{7} = \frac{1}{21}
 \]
 \end{solution}
 
+\begin{question}
+There are $2^n$ players in a knockount style chess tournament, numbered 1,2,3 . . . $2^n$. 
+Player numbered $i$ always wins against player number $j\:\forall j > i$.
+What is the probability that the $k^{th}$ best player comes second?
+\end{question}
+\begin{solution}
+W.L.O.G, consider this tournament as a pool style tournament. Let $N = 2^n$ and consider two
+pools of $N/2$ players each. The tournament progresses separately in both pools and the final is 
+played between the champions from each. Let $P_k$ denote the required probability.
+
+It is evident that $P_k = 0 \: \forall k > N/2$ as this $k^{th}$ best player can never emerge as the
+champion from a pool which is the requisite condition for being second.
+
+Also, $P_1$ = 0 as he would always come first.
+
+When $1 < k \leq N/2$, the experiment can be thought of as follows: consider any permutation of $N$ 
+players in which the first $N/2$ belong to pool 1 and the rest to pool 2. $P_k$ is the probability 
+of the event where players 1,2,..$k-1$ remain in one pool and the $k^{th}$ player remains is the other:
+\[
+P_k = 1 \times \frac{(N/2) - 1}{N - 1} \times \frac{(N/2) - 2}{N - 2}\:.\:.\:.\:\times
+\frac{(N/2) - (k - 2)}{N - (k - 2)} \times \frac{(N/2)}{N - (k-1)}
+\]
+
+e.g. when $N = 16$ and $k = 2$, the answer is $\frac{8}{15}$ and when $k=3$, the answer
+is $\frac{7}{15} \times \frac{8}{14} = \frac{4}{15}$
+\end{solution}
 \newpage
 \section*{Counting By Reflection}
 \begin{question}
