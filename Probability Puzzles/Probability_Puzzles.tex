@@ -135,6 +135,32 @@ P_k = 1 \times \frac{(N/2) - 1}{N - 1} \times \frac{(N/2) - 2}{N - 2}\:.\:.\:.\:
 e.g. when $N = 16$ and $k = 2$, the answer is $\frac{8}{15}$ and when $k=3$, the answer
 is $\frac{7}{15} \times \frac{8}{14} = \frac{4}{15}$
 \end{solution}
+
+\begin{question}
+A fair 40-sided and 60-sided dice are rolled. What is the probability that the number on the 60-sided
+die is larger than the 40-sided die?
+\end{question}
+\begin{solution}
+Let S be the required event. Condition S on two events:
+
+$S_1$: the 60-sided die shows a number between $[1, 40]$
+
+$S_2$: the 60-sided die shows a number between $[41, 60]$
+\begin{equation}
+P(S) = P(S_1)P(S | S_1) + P(S_2)P(S | S_2)
+\end{equation}
+$P(S | S_2) = 1$. For $P(S | S_1)$, there are 3 possible events:  60-sided die shows a larger
+number OR 40-sided die shows a larger number OR both show the same number. By Symmetry:
+
+P(60-sided $>$ 40-sided $|$ $S_1$) = P(40-sided $>$ 60-sided $|$ $S_1$) = x (say)
+
+P(both same) = $\frac{1}{4}$
+
+By law of total probability,
+\[2x + \frac{1}{40} = 1 \implies x = \frac{39}{80}\]
+Substituting in (3), we get:
+\[P(S) = \frac{40}{60} \times \frac{39}{80} + \frac{20}{60} \times 1\ = \frac{79}{120}\]
+\end{solution}
 \newpage
 \section*{Counting By Reflection}
 \begin{question}
@@ -250,6 +276,22 @@ E_1 = (\frac{4}{6} \times \frac{3 + 4 + 5 + 6}{4}) + (\frac{2}{6} \times 2.833) 
 $\therefore$ the expected reward under optimal strategy is 3.944.
 \end{solution}
 
+\begin{question}
+A 10 sided die can be rolled continuously. On each roll, if the face shows a number less than 10,
+that value is added to the current reward. If the face shows a 10, the game ends with 0 reward.
+What is the optimal playing strategy?
+\end{question}
+\begin{solution}
+The optimal stopping decision is conditioned on the current balance of rewards: what is the point
+after which, the new expected reward stops being more than the current reward?
+
+Let the current balance be $S$ . Let the new balance after a roll be $S + k$ for some $k$.
+\[S + E[k] = S + \frac{9}{10} \times (S + 5)\]
+\[E[k] \geq 0 \implies \frac{S}{10} - 4.5 \leq 0 \implies S \leq 45 \]
+So, we must stop as soon as the current balance is atleast 45.
+
+\end{solution}
+
 \newpage
 \section*{Linearity Of Expectation}
 \begin{question}
@@ -271,5 +313,27 @@ $E[I_1] = 1$ and by symmetry, $E[I_i] = 2 \times \frac{50}{100} \times \frac{50}
 \[
 E[R] = 1 + 99 \times 2 \times \frac{50}{100} \times \frac{50}{99} = 1 + 50 = 51
 \]
+\end{solution}
+
+\newpage
+\section*{State Propogation}
+\begin{question}
+A fair 6 sided die is rolled until the difference of two consecutive rolls in not atmost 1. What is
+the expected number of rolls?
+\end{question}
+\begin{solution}
+Let $E_i$ denote the extra expected number of rolls after this point, if the current roll was number
+$i$, where $i=1,2,...6$. Let E be the required number.
+\begin{equation}
+E = 1 + \frac{1}{6} (E_1 + E_2\:.\:.\:.\:+ E_6)
+\end{equation}
+Based on how the states propogate, we have the following equations:
+\[E_1 = 1 + \frac{1}{6} (E_3 + E_4 + E_5 + E_6)\]
+\[E_2 = 1 + \frac{1}{6} (E_4 + E_5 + E_6)\]
+\[E_3 = 1 + \frac{1}{6} (E_1 + E_5 + E_6)\]
+\[E_4 = 1 + \frac{1}{6} (E_1 + E_2 + E_6)\]
+\[E_5 = 1 + \frac{1}{6} (E_1 + E_2 + E_3)\]
+\[E_6 = 1 + \frac{1}{6} (E_1 + E_2 + E_3 + E_4)\]
+Solving these equations and substituting in (4), we get E = 3.27
 \end{solution}
 \end{document}
