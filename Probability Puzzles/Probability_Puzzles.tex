@@ -318,7 +318,7 @@ E[R] = 1 + 99 \times 2 \times \frac{50}{100} \times \frac{50}{99} = 1 + 50 = 51
 \newpage
 \section*{State Propogation}
 \begin{question}
-A fair 6 sided die is rolled until the difference of two consecutive rolls in not atmost 1. What is
+A fair 6 sided die is rolled until the difference of two consecutive rolls is atmost 1. What is
 the expected number of rolls?
 \end{question}
 \begin{solution}
@@ -335,5 +335,24 @@ Based on how the states propogate, we have the following equations:
 \[E_5 = 1 + \frac{1}{6} (E_1 + E_2 + E_3)\]
 \[E_6 = 1 + \frac{1}{6} (E_1 + E_2 + E_3 + E_4)\]
 Solving these equations and substituting in (4), we get E = 3.27
+\end{solution}
+\begin{question}
+A fair 6 sided die is rolled until the difference of two consecutive rolls is 2. What is the 
+expected number of rolls?
+\end{question}
+\begin{solution}
+Let $Ei$ denote the extra expected number of rolls needed, to achieve the result from a point 
+where the current role is $i$. Let E denote the expected number of rolls to achieve the result.
+\begin{equation}
+E = 1 + \frac{1}{6}(E1 + E2 \:.\:.\:.\:+E6)
+\end{equation}
+Based on how the states propogate, we have the following equations:
+\[E1 = 1 + \frac{1}{6}(E1 + E2 + 0 + E4 + E5 + E6)\]
+\[E2 = 1 + \frac{1}{6}(E1 + E2 + E3 + 0 + E5 + E6)\]
+\[E3 = 1 + \frac{1}{6}(0 + E2 + E3 + E4 + 0 + E6)\]
+\[E4 = 1 + \frac{1}{6}(E1 + 0 + E3 + E4 + E5 + 0)\]
+\[E5 = 1 + \frac{1}{6}(E1 + E2 + 0 + E4 + E5 + E6)\]
+\[E6 = 1 + \frac{1}{6}(E1 + E2 + E3 + 0 + E5 + E6)\]
+Solving these and substituting back in (6), we get $E = 5.67$.
 \end{solution}
 \end{document}
