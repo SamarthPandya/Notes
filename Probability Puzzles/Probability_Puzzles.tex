@@ -355,4 +355,33 @@ Based on how the states propogate, we have the following equations:
 \[E6 = 1 + \frac{1}{6}(E1 + E2 + E3 + 0 + E5 + E6)\]
 Solving these and substituting back in (6), we get $E = 5.67$.
 \end{solution}
+
+\begin{question}
+A fair coin is tossed repeatedly until an "HT" is observed. What is the expected number of tosses?
+\end{question}
+\begin{solution}
+Let $E_H$ = expected extra number of rolls to get a "HT" having already a H.
+
+$E_T$ = expected extra number of rolls to get a "HT" having already a T.
+
+$E_{HT}$ = expected number of rolls to get an HT.
+\[E_{HT} = \frac{1}{2} \times (1 + E_{H}) + \frac{1}{2} \times (1 + E_{T})\]
+\[E_H = \frac{1}{2} \times (1) + \frac{1}{2} \times (1 + E_H)\]
+\[E_T = E_{HT}\]
+Solving these, we get $E_H$ = 2 and $E_{HT} = 4$
+\end{solution}
+\begin{question}
+A fair coin is tossed repeatedly until an "HH" is observed. What is the expected number of tosses?
+\end{question}
+\begin{solution}
+Let $E_{HH}$ = expected number of tosses to observe HH.
+
+$E_H$ = expected number extra tosses to get HH if the current toss is an H.
+
+$E_T$ = expected number extra tosses to get HH if the current toss is a T.
+\[E_{HH} = \frac{1}{2} \times (1 + E_H) + \frac{1}{2} \times (1 + E_T)\]
+\[E_H = \frac{1}{2} \times (1) + \frac{1}{2} \times (1 + E_T)\]
+\[E_T = E_{HH}\]
+Solving these, we get $E_{HH} = 6$
+\end{solution}
 \end{document}
