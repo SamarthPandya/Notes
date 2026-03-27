@@ -314,6 +314,23 @@ $E[I_1] = 1$ and by symmetry, $E[I_i] = 2 \times \frac{50}{100} \times \frac{50}
 E[R] = 1 + 99 \times 2 \times \frac{50}{100} \times \frac{50}{99} = 1 + 50 = 51
 \]
 \end{solution}
+\begin{question}
+Every box of cereal contains one toy from a group of 5 distinct toys, 
+each of which is mutually independent from the others and is equally likely to be within a given box. 
+How many distinct toys can you expect to collect if you bought 7 boxes?
+\end{question}
+\begin{solution}
+For each toy numbered i, let $X_i$ be a random variable which is 1 if a toy of type i is present
+among the 7 and 0 otherwise. Let X be the random variable which denotes the number of distinct
+toys among 7. By linearity of expectation:
+\begin{equation}
+E[X] = E[X_1] + E[X_2]\:.\:.\:.\:+E[X_5]
+\end{equation}
+By symmetry,
+\[E[X_i] = 1 - (\frac{4}{5})^7 \text{ for each i}\]
+Substituting this in (5), we get
+\[E[X] = 5 \times (1 - (\frac{4}{5})^7) = 3.95\]
+\end{solution}
 
 \newpage
 \section*{State Propogation}
