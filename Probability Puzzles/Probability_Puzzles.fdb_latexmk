@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1774624213.51083 "/Users/samarthpandya134/Notes/Probability Puzzles/Probability_Puzzles.tex" "Probability_Puzzles.pdf" "Probability_Puzzles" 1774624214.16961 0
-  "/Users/samarthpandya134/Notes/Probability Puzzles/Probability_Puzzles.tex" 1774624213.3346 15943 cbbb56d95c296dc8b3f4785b18492bde ""
+["pdflatex"] 1774701061.63781 "/Users/samarthpandya134/Notes/Probability Puzzles/Probability_Puzzles.tex" "Probability_Puzzles.pdf" "Probability_Puzzles" 1774701062.32627 0
+  "/Users/samarthpandya134/Notes/Probability Puzzles/Probability_Puzzles.tex" 1774701061.36396 17153 89fe4eb02c9c5d51da1326fcb604c082 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1136768653 1536 05df9db6aeccc4eea94fec15c9024f79 ""
@@ -12,6 +12,8 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -29,6 +31,7 @@
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1248133631 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
+  "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1248133631 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb" 1248133631 28902 2f5c04fd2884d1878057baa5aad22765 ""
@@ -143,8 +146,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1773845027 5541377 04880c840ca220163a28f1a3af0ee662 ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1773844959 3636766 5bfd69b0c6aa4cffd9d6b9f00cccbf11 ""
   "/usr/local/texlive/2026/texmf.cnf" 1772409725 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "Probability_Puzzles.aux" 1774624214.12766 68 bdef41c84d318a371699723bae0d17da "pdflatex"
-  "Probability_Puzzles.tex" 1774624213.3346 15943 cbbb56d95c296dc8b3f4785b18492bde ""
+  "Probability_Puzzles.aux" 1774701062.26819 68 bdef41c84d318a371699723bae0d17da "pdflatex"
+  "Probability_Puzzles.tex" 1774701061.36396 17153 89fe4eb02c9c5d51da1326fcb604c082 ""
   (generated)
   "Probability_Puzzles.aux"
   "Probability_Puzzles.log"

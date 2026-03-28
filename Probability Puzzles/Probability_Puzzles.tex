@@ -401,4 +401,43 @@ $E_T$ = expected number of extra tosses to get HH if the current toss is a T.
 \[E_T = E_{HH}\]
 Solving these, we get $E_{HH} = 6$
 \end{solution}
+\begin{question}
+7 Orbs are hanging from a ceiling in linear arrangement via 6 links, with, 
+the top most orb fixed to the ceiling.
+One of the remaining links is chosen randomly and cut, thus dropping all orbs below it.
+This process is repeated until only the top most orb remains. 
+What is the expected number of cuts to end the game?
+\end{question}
+$$
+\begin{array}{c}
+\textbf{--- Ceiling ---} \\
+\downharpoonleft \\
+\textcircled{1} \\
+\mid \ \scriptstyle L_1 \\
+\textcircled{2} \\
+\mid \ \scriptstyle L_2 \\
+\textcircled{3} \\
+\mid \ \scriptstyle L_3 \\
+\textcircled{4} \\
+\mid \ \scriptstyle L_4 \\
+\textcircled{5} \\
+\mid \ \scriptstyle L_5 \\
+\textcircled{6} \\
+\mid \ \scriptstyle L_6 \\
+\textcircled{7}
+\end{array}
+$$
+\begin{solution}
+Let $E[X_i]$ denote the expected number of cuts to end the game if the current chain has i links.
+Either we cut the top most link and end the game or the second one, leaving behind 1 link, or
+the third, leaving behind 2 links and so on:
+\[
+E[X_i] = 1 + \frac{1}{n}(E[X_0] + E[X_1]\:.\:.\:.\:+E[X_{i - 1}])
+\]
+Naturally, $E[X_0] = 0$. Upon simplifying this, we get
+\[
+E[X_i] = \frac{1}{1} + \frac{1}{2} \:.\:.\:.\:+\frac{1}{i}
+\implies E[X_6] = 2.45
+\]
+\end{solution}
 \end{document}
