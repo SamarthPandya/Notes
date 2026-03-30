@@ -440,4 +440,34 @@ E[X_i] = \frac{1}{1} + \frac{1}{2} \:.\:.\:.\:+\frac{1}{i}
 \implies E[X_6] = 2.45
 \]
 \end{solution}
+\newpage
+\section*{Game Theory \& Strategy}
+\begin{question}
+You are playing a one-player game with two opaque boxes. 
+At each turn, you can choose to either "place" or "take". "Place" places \$1
+from a third party into one box randomly. 
+"Take" empties out one box randomly and that money is yours. This game consists of 
+100 turns where you must either place or take. 
+Assuming optimal play, what is the expected payoff of this game? 
+Note that you do not know how much money you have taken until the end of the game.
+\end{question}
+\begin{solution}
+The optimal strategy will have some permutation of n places and $100 - n$ takes.
+
+We must use all our \texttt{take} calls after all of the \texttt{place} calls to \textit{harvest}
+the maximum value from each \texttt{take}. 
+In light of this observation, let the optimal strategy be of
+calling n \texttt{place} followed by $100 - n$ \texttt{take}.
+
+From n \texttt{place} calls, the expected dollars in each box will be $\frac{n}{2}$. The probability
+of a box opening atleast once is $1 -  (1/2)^{100 - n}$. As there are two boxes, the probability
+of both boxes opening atleast once is $2 \times (1 -  (1/2)^{100 - n})$. As the reward from each
+box is $\frac{n}{2}$, the expected reward from this game is:
+\begin{equation}
+E(n) = \frac{n}{2} \times 2 \times (1 -  (1/2)^{100 - n}) = n (1 - (\frac{1}{2})^{100 - n})
+\end{equation}
+Finding the optimal expected reward means finding the maxima of the function defined in (8). If
+we graph this function and check the maxima, it turns out to be $(93.95, 92.53)$. Since n has
+to be an integer, we set n = 94 and get $E[n] = 92.53$.
+\end{solution}
 \end{document}
