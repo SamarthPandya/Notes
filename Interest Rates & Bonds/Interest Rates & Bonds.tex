@@ -214,4 +214,17 @@ Modified duration is the negative rate of change of percentage change in bond pr
 in yield.
 
 It measures the sensitivity of the bond price wrt change in bond yield.
+
+\section*{Convexity}
+\sep
+Convexity is the second derivative of the price wrt yield:
+\[C = \frac{d^2 B}{dy^2}\]
+From Taylor expansion,
+\[B(y + \Delta y) = B(y) + \frac{dB}{dy} \Delta y + \frac{1}{2} \frac{d^2 B}{dy^2} (\Delta y)^2\]
+\[\implies B(y + \Delta y) - B(y) = -B(y)D \Delta y + \frac{1}{2}C (\Delta y)^2\]
+dividing by $B(y)$, we get
+
+\begin{equation}
+  \frac{\Delta B}{B} = -D \Delta y + \frac{C}{2B} (\Delta y)^2
+\end{equation}
 \end{document}
