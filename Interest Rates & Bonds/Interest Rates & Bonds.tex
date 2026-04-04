@@ -1,0 +1,217 @@
+\documentclass[DIV=15, fleqn, oneside, 10pt]{scrartcl}
+
+% --------------------------------------------------
+% Page appearance (subtle warm tone)
+% --------------------------------------------------
+\usepackage{xcolor}
+\pagecolor{yellow!3}        
+\color{black}    
+
+% --------------------------------------------------
+% Layout and spacing
+% --------------------------------------------------
+\KOMAoptions{parskip=half}  % space between paragraphs (no indentation feel)
+\setlength{\parindent}{0pt} % remove paragraph indentation
+\setlength{\mathindent}{0pt}% left-align equations (fleqn tweak)
+
+% --------------------------------------------------
+% Math packages
+% --------------------------------------------------
+\usepackage{amsmath, amssymb}
+\AtBeginDocument{\setlength{\mathindent}{0pt}}
+
+% --------------------------------------------------
+% Theorem styling (clean, minimal)
+% --------------------------------------------------
+\usepackage{amsthm, tikz}
+
+\newtheoremstyle{clean}
+  {6pt}        % Space above
+  {6pt}        % Space below
+  {}% Body font
+  {}           % Indent amount
+  {\bfseries}  % Head font (bold)
+  {.}          % Punctuation after heading
+  {0.5em}      % Space after heading
+  {}
+
+\theoremstyle{clean}
+\newtheorem{question}{Q} % auto-numbered questions
+
+% --------------------------------------------------
+% Line
+% --------------------------------------------------
+\newcommand{\sep}{%
+  \par\medskip
+  \hrule
+  \bigskip
+}
+
+% --------------------------------------------------
+% Title (no date)
+% --------------------------------------------------
+\title{Interest Rates \& Bonds}
+\date{}                    % removes date
+
+% --------------------------------------------------
+\begin{document}
+\maketitle
+
+\newpage
+
+\section*{What Is An Interest Rate}
+\sep
+\textbf{Interest is the cost of borrowing or the reward of lending.} Interest rates are used for compounding
+when calculating the future value and discounting when used to calculate the present value. The
+compounding frequency k, represents the amount of times the rate is applied to compound.
+
+e.g. with interest rate r, compounding frequency k, and time period of t years,
+the future and the present value are related
+as
+\[
+V_{F} = V_{P} (1 + \frac{r}{k})^{kt}
+\]
+
+If the compounding frequency tends towards, infinity, the case is of continuous compounding:
+\[
+V_{F} = V_{P} \times e^{rt}
+\]
+
+\section*{Bonds}
+\sep
+\subsection{Zero Coupon Bond}
+A zero coupon bond is a contract between the issuer (borrower) and the buyer (lender). Following
+are the terms of contract:
+
+ - \textbf{B}: Price of the bond (\$)
+
+ - \textbf{P}: Face value of the bond (\$)
+
+ - \textbf{T}: Time to maturity (yrs)
+
+ - The buyer pays a sum of \textbf{B} to the issuer. The issuer returns a sum of \textbf{P} to
+    the buyer after a period of \textbf{T} years from the date of contract.
+
+The interest rate $r$, earned by the buyer is called the \textbf{zero rate} corresponding
+to maturity T:
+\[
+P = B \times e^{rT}
+\]
+
+\textbf{Zero rate curve} is the plot of zero rates Vs. maturity for all zero rates available in the
+market. Naturally, this plot is not continuous due to the lack of availability of bonds that mature
+at any given time T. To make it continous, we interpolate the data. One of the simplest methods is
+linear interpolation.
+
+Let $r2$ and $r1$ be the zero rates for maturities $T_2$ and $T_1$ respectively, such that 
+$T_1 < T_2$. The zero rate r, for maturity T, between $T_1$ and $T_2$ in this case is given by:
+\[
+r = r1 + (r2 - r1) \times \frac{T - T_1}{T_2 - T_1}
+\]
+
+Drawbacks of linear interpolationa are that the zero curve is not smooth., 
+the zero curve has \textit{kinks} at the vertices,
+it fails to capture the oscillatory nature of actual zero rates.
+
+Another alternative to linear interpolation is \textbf{cubic spline}. But if the cubic spline
+alternates rapidly, it might lead to huge errors in estimation. Also, this method is \textbf{
+    globally sensitive
+} i.e. changing one data point affects the entire curve. A cubic spline can also sometimes esitmate
+negative forward rates which may not ever happen.
+
+The gold standard for plotting zero rates is \textbf{monotone convex interpolation}. It seeks out
+a smooth functon $f$ such that the average value between data points $T_i$ and $T_{i + 1}$ is
+the discrete forward rate, $F_i$ obtained from linear interpolation:
+\[
+F_i = \frac{1}{T_i - T_{i-1}} \int_{T_{i-1}}^{T_i} f(t) dt \text{ for all data points i}
+\]
+
+\newpage
+\subsection{Coupon Paying Bond}
+A zero coupon bond is a contract between the issuer (borrower) and the buyer (lender). Following
+are the terms of contract:
+
+ - \textbf{B}: Price of the bond (\$)
+
+ - \textbf{P}: Face value of the bond (\$)
+
+ - \textbf{T}: Time to maturity (yrs)
+
+ - \textbf{Coupons}: Periodic coupons paid at fixed dates as per contract: $C_1$ at time $T_1$,
+  $C_2$ at time $T_2$ and so on...
+
+The bond price $B$ in this case is calculated as:
+
+\[
+B = \sum_{i = 1}^{n}{C_{i} e^{-r_i T_i}}
+\]
+The summation includes present value of each coupon discounted with the relevant zero rate and the
+last term is the present value of the face value which is returned in the end.
+
+\section*{Yield}
+\sep
+Yield is that internal rate of return, $y$, which makes the PV of all cashflows equal to the bond
+price when used for discounting:
+\[
+B = \sum_{i = 1}^{n}{C_{i} e^{-y T_i}}
+\]
+
+The yield of a zero coupon bond is equal to the zero rate.
+
+As seen in the equation, yield and bond price are in negative correlation.
+
+\textbf{Yield of a zero coupon bond is higher than that of a coupon paying bond with the same
+maturity and face value.}
+
+Sometimes, each coupon is a fixed percentage of the par value, which is called the 
+\textbf{coupon rate}.
+
+Yields are bond specific, while zero rates are market specific. Two bonds with the same maturity
+but different coupon rate will have a different yield. Hence, we must take reference of zero rates
+instead of yields while counting returns over a time period.
+
+
+A bond is said to be \textbf{trading at a premium} if $B > P$ ($y < coupon\:rate$)
+
+A bond is said to be \textbf{trading at a discount} if $B < P$ ($y > coupon\:rate$)
+
+A bond is said to be \textbf{trading at par} if $B = P$ ($y = coupon\:rate$)
+
+\section*{Duration}
+\sep
+\textbf{Duration is the weighted average time, until the present value of all cashflows from a bond
+are recieved.} The weight for each time of cashflow is the present value of the cashflow divided
+by the bond price. Naturally, the weights all sum back to 1:
+\[
+D = \sum_{i = 1}^{n}{T_i \left( \frac{C_i e^{-yT_i}}{B} \right)}
+\]
+
+\newpage
+\section*{Modified Duration}
+\sep
+
+For small changes in bond price, it is true that
+\[
+\Delta B = \frac{dB}{dy} \Delta y
+\]
+\[
+\frac{dB}{dy} = -\sum_{i = 1}^{n}{T_i C_{i} e^{-r_i T_i}} = -BD
+\]
+Which gives
+\begin{equation}
+\Delta B = -BD \Delta y
+\end{equation}
+If we assume a compounding frequency of k instead of continous compounding and repeat the same
+above calculation,
+\[
+\Delta B = -B \left( \frac{D}{1 + \frac{y}{k}} \right) \Delta y
+\]
+Above value in the bracket is the modified duration, denoted by $D^*$,
+\[D^* = 
+\frac{D}{1 + \frac{y}{k}}
+\]
+Modified duration is the negative rate of change of percentage change in bond price per unit change
+in yield.
+
+It measures the sensitivity of the bond price wrt change in bond yield.
+\end{document}
