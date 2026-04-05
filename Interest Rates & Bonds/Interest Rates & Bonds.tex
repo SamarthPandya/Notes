@@ -79,7 +79,7 @@ V_{F} = V_{P} \times e^{rt}
 
 \section*{Bonds}
 \sep
-\subsection{Zero Coupon Bond}
+\subsection*{Zero Coupon Bond}
 A zero coupon bond is a contract between the issuer (borrower) and the buyer (lender). Following
 are the terms of contract:
 
@@ -109,7 +109,7 @@ $T_1 < T_2$. The zero rate r, for maturity T, between $T_1$ and $T_2$ in this ca
 r = r1 + (r2 - r1) \times \frac{T - T_1}{T_2 - T_1}
 \]
 
-Drawbacks of linear interpolationa are that the zero curve is not smooth., 
+Drawbacks of linear interpolation are that the zero curve so obtained is not smooth., 
 the zero curve has \textit{kinks} at the vertices,
 it fails to capture the oscillatory nature of actual zero rates.
 
@@ -127,7 +127,7 @@ F_i = \frac{1}{T_i - T_{i-1}} \int_{T_{i-1}}^{T_i} f(t) dt \text{ for all data p
 \]
 
 \newpage
-\subsection{Coupon Paying Bond}
+\subsection*{Coupon Paying Bond}
 A zero coupon bond is a contract between the issuer (borrower) and the buyer (lender). Following
 are the terms of contract:
 
@@ -146,7 +146,7 @@ The bond price $B$ in this case is calculated as:
 B = \sum_{i = 1}^{n}{C_{i} e^{-r_i T_i}}
 \]
 The summation includes present value of each coupon discounted with the relevant zero rate and the
-last term is the present value of the face value which is returned in the end.
+last term also includes the present value of the face value which is returned in the end.
 
 \section*{Yield}
 \sep
@@ -227,4 +227,22 @@ dividing by $B(y)$, we get
 \begin{equation}
   \frac{\Delta B}{B} = -D \Delta y + \frac{C}{2B} (\Delta y)^2
 \end{equation}
+Convexity is positive for vanilla bonds. 
+
+Convexity reduces the decrease in bond price and increases
+the increase in bond price.
+
+A higher convexity offers dual sided benefits and thus makes the bond costlier.
+\section*{Callable Bond}
+\sep
+A callable bond is bond with optionality, the issuer can recall it and settle the bond at the
+\textbf{call price} before a specified period of time. 
+
+A callable bond has a lower duration
+than a normal bond. This is because, as interest rates fall, the issuer may recall it and settle
+the bond.
+
+Callable bonds can have negative convexity. 
+
+Price of a callable bond tends to be capped at the call price.
 \end{document}
